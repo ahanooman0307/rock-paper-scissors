@@ -1,11 +1,11 @@
-function getComputerChoice(){
+function getComputerChoice(){ //randomly selects a choice for the computer
     let computerChoice = ["Rock", "Paper", "Scissors"];
     let random = computerChoice[Math.floor(Math.random()*3)]; //chooses random index from 0-2 of computerChoice
     console.log(random);
     return random;
 }
 
-function getPlayerChoice(){
+function getPlayerChoice(){ //prompts use to choose rock paper or scissors
     let playerChoice = prompt("Choose Rock, Paper, or Scissors");
     return playerChoice;
 }
@@ -13,7 +13,7 @@ function getPlayerChoice(){
 function capitalize(word){
     let result = word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
     return result; 
-    }
+}
 
 function playRound(computerChoice, playerChoice){
     if(playerChoice == computerChoice)
@@ -21,7 +21,8 @@ function playRound(computerChoice, playerChoice){
         return "It's a draw!";
     }
     else if((playerChoice == "Rock" && computerChoice == "Paper") || (playerChoice == "Paper" && computerChoice == "Scissors"))
-    {
+    {   
+        lose++;
         return "You lose the computer chose " + computerChoice + "!";
     }
     else if((playerChoice == "Rock" && computerChoice == "Scissors") ||(playerChoice == "Scissors" && computerChoice == "Paper"))
@@ -31,15 +32,16 @@ function playRound(computerChoice, playerChoice){
     }
 }
 
-function game(computerChoice, playerChoice){
+function game(){
 
     for(let i = 0; i < 5; i++){
+        let computerChoice = getComputerChoice();
+        let playerChoice = capitalize(getPlayerChoice());
         playRound(computerChoice, playerChoice);
         console.log(playRound(computerChoice, playerChoice));
-        computerChoice = getComputerChoice();
-        playerChoice = capitalize(getPlayerChoice());
+
     }
-    if(win == 3){
+    if(win > lose){
         console.log("You win!");
     }
     else{
@@ -49,10 +51,7 @@ function game(computerChoice, playerChoice){
 }
 
 let win = 0;
-let computerChoice = getComputerChoice();
-let playerChoice = capitalize(getPlayerChoice());
-game(computerChoice, playerChoice);
-
-// console.log(playRound(computerChoice, playerChoice));
+let lose = 0;
+game();
 
 
