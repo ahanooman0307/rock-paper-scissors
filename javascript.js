@@ -6,7 +6,31 @@ function getComputerChoice(){ //randomly selects a choice for the computer
 }
 
 function getPlayerChoice(){ //prompts use to choose rock paper or scissors
-    let playerChoice = prompt("Choose Rock, Paper, or Scissors");
+    let playerChoice = capitalize(prompt("Choose Rock, Paper, or Scissors"));
+    if(playerChoice == "Rock"){
+        check = 1;
+    }
+    else if(playerChoice == "Paper"){
+        check = 1;
+    }
+    else if(playerChoice == "Scissors"){
+        check = 1;
+    }
+    //makes sures players types a valid answer
+    while(check == 0)
+    {   
+        playerChoice = capitalize(prompt("Please choose Rock, Paper, or Scissors"));
+        if(playerChoice == "Rock"){
+            check = 1;
+        }
+        else if(playerChoice == "Paper"){
+            check = 1;
+        }
+        else if(playerChoice == "Scissors"){
+            check = 1;
+        }
+    }
+    check = 0;
     return playerChoice;
 }
 
@@ -52,6 +76,7 @@ function game(){
 
 let win = 0;
 let lose = 0;
+let check = 0;
 game();
 
 
