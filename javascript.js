@@ -1,8 +1,4 @@
-
-
 let playerChoice = "";
-
-
 
 function getComputerChoice(){ //randomly selects a choice for the computer
     let computerChoice = ["Rock", "Paper", "Scissors"];
@@ -19,18 +15,18 @@ function playRound(computerChoice, playerChoice){
         return "It's a draw!";
     }
     else if((playerChoice == "Rock" && computerChoice == "Paper") || (playerChoice == "Paper" && computerChoice == "Scissors") || (playerChoice == "Scissors" && computerChoice == "Rock"))
-    {   
+    {
         lose++;
         console.log("lose");
         return "You lose the computer chose " + computerChoice + "!";
     }
     else if((playerChoice == "Rock" && computerChoice == "Scissors") ||(playerChoice == "Scissors" && computerChoice == "Paper") || (playerChoice == "Paper" && computerChoice == "Rock"))
-    {   
+    {
         win++;
         console.log("win");
         score.textContent = `Score: ${win}`;
         return "You win the computer chose " + computerChoice + "!";
-        
+
     }
 }
 
@@ -50,7 +46,7 @@ function game(){
     else{
         alert("You lose!");
     }
-  
+
 }
 
 // game();
@@ -60,6 +56,7 @@ const rock = document.querySelector("#rock");
 const paper = document.querySelector("#paper");
 const scissors = document.querySelector("#scissors");
 const score = document.querySelector(".score");
+const weapon =
 
 
 rock.addEventListener('click', () => {
@@ -70,7 +67,7 @@ rock.addEventListener('click', () => {
     if(win == 5){
         alert("you win");
     }
-   
+
 })
 paper.addEventListener('click', () =>{
     console.log("Paper");
