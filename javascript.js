@@ -15,19 +15,20 @@ function getComputerChoice(){ //randomly selects a choice for the computer
 function playRound(computerChoice, playerChoice){
     if(playerChoice == computerChoice)
     {
-        console.log("a");
+        console.log("draw");
         return "It's a draw!";
     }
-    else if((playerChoice == "Rock" && computerChoice == "Paper") || (playerChoice == "Paper" && computerChoice == "Scissors"))
+    else if((playerChoice == "Rock" && computerChoice == "Paper") || (playerChoice == "Paper" && computerChoice == "Scissors") || (playerChoice == "Scissors" && computerChoice == "Rock"))
     {   
         lose++;
-        console.log("b");
+        console.log("lose");
         return "You lose the computer chose " + computerChoice + "!";
     }
-    else if((playerChoice == "Rock" && computerChoice == "Scissors") ||(playerChoice == "Scissors" && computerChoice == "Paper"))
+    else if((playerChoice == "Rock" && computerChoice == "Scissors") ||(playerChoice == "Scissors" && computerChoice == "Paper") || (playerChoice == "Paper" && computerChoice == "Rock"))
     {   
         win++;
-        console.log("c");
+        console.log("win");
+        score.textContent = `Score: ${win}`;
         return "You win the computer chose " + computerChoice + "!";
         
     }
@@ -58,25 +59,36 @@ function game(){
 const rock = document.querySelector("#rock");
 const paper = document.querySelector("#paper");
 const scissors = document.querySelector("#scissors");
+const score = document.querySelector(".score");
+
 
 rock.addEventListener('click', () => {
     console.log("Rock");
     let computerChoice = getComputerChoice();
     playerChoice = "Rock";
     playRound(computerChoice, playerChoice);
-
+    if(win == 5){
+        alert("you win");
+    }
+   
 })
 paper.addEventListener('click', () =>{
     console.log("Paper");
     let computerChoice = getComputerChoice();
     playerChoice = "Paper";
     playRound(computerChoice, playerChoice);
+    if(win == 5){
+        alert("you win");
+    }
 })
 scissors.addEventListener('click', () => {
     console.log("Scissors");
     let computerChoice = getComputerChoice();
     playerChoice = "Scissors";
     playRound(computerChoice, playerChoice);
+    if(win == 5){
+        alert("you win");
+    }
 })
 
 
