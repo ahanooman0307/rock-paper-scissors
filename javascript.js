@@ -1,4 +1,4 @@
-
+//declare variables from html
 const rock = document.querySelector("#rock");
 const paper = document.querySelector("#paper");
 const scissors = document.querySelector("#scissors");
@@ -6,10 +6,15 @@ const crock = document.querySelector("#crock");
 const cpaper = document.querySelector("#cpaper");
 const cscissors = document.querySelector("#cscissors");
 const score = document.querySelector(".score");
+const cscore = document.querySelector(".cscore");
 
-
-
+//declare global variables
 let playerChoice = "";
+let player_score = 0;
+let computer_score = 0;
+
+
+
 
 function getComputerChoice(){ //randomly selects a choice for the computer
     let computerChoice = ["Rock", "Paper", "Scissors"];
@@ -48,14 +53,15 @@ function playRound(computerChoice, playerChoice){
     {
         computer_score++;
         console.log("computer_score");
-        return "You computer_score the computer chose " + computerChoice + "!";
+        cscore.textContent = `Score: ${computer_score}`;
+        return "You lose the computer chose " + computerChoice + "!";
     }
     else if((playerChoice == "Rock" && computerChoice == "Scissors") ||(playerChoice == "Scissors" && computerChoice == "Paper") || (playerChoice == "Paper" && computerChoice == "Rock"))
     {
         player_score++;
         console.log("player_score");
         score.textContent = `Score: ${player_score}`;
-        return "You player_score the computer chose " + computerChoice + "!";
+        return "You win the computer chose " + computerChoice + "!";
 
     }
 }
@@ -105,7 +111,7 @@ paper.addEventListener('click', () =>{
     scissors.style.cssText = "background-color: black";
     playRound(computerChoice, playerChoice);
     if(player_score == 5){
-        alert("you player_score");
+        alert("You win!");
     }
 })
 scissors.addEventListener('click', () => {
@@ -123,6 +129,3 @@ scissors.addEventListener('click', () => {
 
 
 
-let player_score = 0;
-let computer_score = 0;
-let check = 0;
