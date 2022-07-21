@@ -1,5 +1,5 @@
 body{
-    background-color: rgb(228, 140, 26);
+    background-color: rgb(0, 0, 0);
     display: flex;
     flex-direction: column;
 }
@@ -9,10 +9,11 @@ body{
     flex-direction: column;
     align-items: center;
     font-size: 100px;
+    color: white;
 }
 
 .instructions{
-    color: red;
+    color: white;
     font-size: 50px;
 }
 
@@ -21,9 +22,21 @@ body{
     flex: 1;
     justify-content: center;
     /* gap: 250px; */
-    background-color: rgb(90, 89, 89);
+    background-color: rgb(19, 3, 22);
     padding: 0;
+    /* border-left: 5px solid white;
+    border-right: 5px solid white; */
 
+}
+
+.user{
+    border-bottom: 2px solid aqua;
+    border-top: 5px solid aqua;
+}
+
+.computer{
+    border-bottom: 2px solid red;
+    border-top: 5px solid red;
 }
 .weapon{
     background-color: black ;
@@ -38,7 +51,18 @@ body{
     display: flex;
     justify-content: center;
     font-size: 50px;
-    /* margin-top: 300px; */
+    background-color: black;
+    color: white;
+    border: 5px solid red;
+}
+
+.score{
+    color: aqua;
+    border: 5px solid aqua;
+}
+.cscore{
+    color: red;
+    border: 5px solid red;
 }
 
 img{
