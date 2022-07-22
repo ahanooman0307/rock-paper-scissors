@@ -2,6 +2,7 @@ body{
     background-color: rgb(0, 0, 0);
     display: flex;
     flex-direction: column;
+    
 }
 
 .heading{
@@ -81,4 +82,18 @@ img{
     font-size: 48px;
     font-weight: 700;
     color: white;
+}
+
+.winning, .again{
+    font-size: 100px;
+    color: white;
+    display: none;
+}
+
+a{
+    text-decoration: none;
+    color: red;
+}
+.again{
+    background-color: black;
 }

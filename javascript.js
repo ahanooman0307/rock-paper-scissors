@@ -7,14 +7,42 @@ const cpaper = document.querySelector("#cpaper");
 const cscissors = document.querySelector("#cscissors");
 const score = document.querySelector(".score");
 const cscore = document.querySelector(".cscore");
+const gamescreen = document.querySelector(".gameScreen");
+const winner = document.querySelector(".winning");
+const body = document.querySelector("body");
+const playAgain = document.querySelector(".again");
 
 //declare global variables
 let playerChoice = "";
-let player_score = 0;
-let computer_score = 0;
+let player_score = 4;
+let computer_score = 4;
 
 
+// window.location.href = "./win.html";
 
+function checkWin(){
+    if(player_score == 5){
+
+    gamescreen.style.opacity = 0;
+    gamescreen.style.transform = 'scale(0)';
+    gamescreen.style.display = 'none';
+    body.style.cssText = 'align-items: center; gap: 200px;';
+    winner.style.display = "flex";
+    playAgain.style.display = "block";
+
+
+    }
+    else if(computer_score == 5){
+
+    gamescreen.style.opacity = 0;
+    gamescreen.style.transform = 'scale(0)';
+    gamescreen.style.display = 'none';
+    winner.style.display = "flex";
+    body.style.cssText = 'align-items: center';
+    playAgain.style.display = "block";
+
+    }
+}
 
 function getComputerChoice(){ //randomly selects a choice for the computer
     let computerChoice = ["Rock", "Paper", "Scissors"];
@@ -37,7 +65,7 @@ function getComputerChoice(){ //randomly selects a choice for the computer
     {
         crock.style.cssText = "background-color: black";
         cpaper.style.cssText = "background-color: black";
-        cscissors.style.cssText = "background-color: red";   
+        cscissors.style.cssText = "background-color: red";
     }
     return random;
 }
@@ -52,6 +80,7 @@ function playRound(computerChoice, playerChoice){
     else if((playerChoice == "Rock" && computerChoice == "Paper") || (playerChoice == "Paper" && computerChoice == "Scissors") || (playerChoice == "Scissors" && computerChoice == "Rock"))
     {
         computer_score++;
+        checkWin();
         console.log("computer_score");
         cscore.textContent = `Score: ${computer_score}`;
         return "You lose the computer chose " + computerChoice + "!";
@@ -59,6 +88,7 @@ function playRound(computerChoice, playerChoice){
     else if((playerChoice == "Rock" && computerChoice == "Scissors") ||(playerChoice == "Scissors" && computerChoice == "Paper") || (playerChoice == "Paper" && computerChoice == "Rock"))
     {
         player_score++;
+        checkWin();
         console.log("player_score");
         score.textContent = `Score: ${player_score}`;
         return "You win the computer chose " + computerChoice + "!";
@@ -97,9 +127,7 @@ rock.addEventListener('click', () => {
     paper.style.cssText = "background-color: black";
     scissors.style.cssText = "background-color: black";
     playRound(computerChoice, playerChoice);
-    if(player_score == 5){
-        alert("you player_score");
-    }
+
 
 })
 paper.addEventListener('click', () =>{
@@ -110,22 +138,20 @@ paper.addEventListener('click', () =>{
     paper.style.cssText = "background-color: aqua";
     scissors.style.cssText = "background-color: black";
     playRound(computerChoice, playerChoice);
-    if(player_score == 5){
-        alert("You win!");
-    }
+
+ 
 })
 scissors.addEventListener('click', () => {
     console.log("Scissors");
     let computerChoice = getComputerChoice();
     playerChoice = "Scissors";
     rock.style.cssText = "background-color: black";
-    paper.style.cssText = "background-color: black";
+    paper.style.cssText = "background-color: black;";
     scissors.style.cssText = "background-color: aqua";
     playRound(computerChoice, playerChoice);
     if(player_score == 5){
         alert("you win!");
     }
 })
-
 
 
