@@ -84,7 +84,7 @@ img{
     color: white;
 }
 
-.winning, .again{
+.winning, .losing, .again{
     font-size: 100px;
     color: white;
     display: none;
@@ -96,4 +96,5 @@ a{
 }
 .again{
     background-color: black;
+    /* border: 2px solid red; */
 }

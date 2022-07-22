@@ -9,13 +9,14 @@ const score = document.querySelector(".score");
 const cscore = document.querySelector(".cscore");
 const gamescreen = document.querySelector(".gameScreen");
 const winner = document.querySelector(".winning");
+const loser = document.querySelector(".losing");
 const body = document.querySelector("body");
 const playAgain = document.querySelector(".again");
 
 //declare global variables
 let playerChoice = "";
-let player_score = 4;
-let computer_score = 4;
+let player_score = 0;
+let computer_score = 0;
 
 
 // window.location.href = "./win.html";
@@ -33,13 +34,14 @@ function checkWin(){
 
     }
     else if(computer_score == 5){
-
+    
     gamescreen.style.opacity = 0;
     gamescreen.style.transform = 'scale(0)';
     gamescreen.style.display = 'none';
-    winner.style.display = "flex";
-    body.style.cssText = 'align-items: center';
+    loser.style.display = "flex";
+    body.style.cssText = 'align-items: center; gap: 200px;';
     playAgain.style.display = "block";
+    
 
     }
 }
@@ -149,9 +151,6 @@ scissors.addEventListener('click', () => {
     paper.style.cssText = "background-color: black;";
     scissors.style.cssText = "background-color: aqua";
     playRound(computerChoice, playerChoice);
-    if(player_score == 5){
-        alert("you win!");
-    }
 })
 
 
